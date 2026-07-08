@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   test:
@@ -16,7 +16,7 @@ jobs:
         image: postgres:16-alpine
         env:
           POSTGRES_USER: root
-          POSTGRES_PASSWORD: password
+          POSTGRES_PASSWORD: 07May2002@
           POSTGRES_DB: simple_bank
         ports:
           - 5433:5432
