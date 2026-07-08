@@ -28,7 +28,7 @@ jobs:
 
     env:
       DB_DRIVER: postgres
-      DB_SOURCE: postgres://root:password@localhost:5433/simple_bank?sslmode=disable
+      DB_SOURCE: postgres://root:07May2002@@localhost:5433/simple_bank?sslmode=disable
 
     steps:
       - name: Checkout
