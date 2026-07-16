@@ -7,22 +7,19 @@ import (
 	"testing"
 
 	_ "github.com/lib/pq"
+	"github.com/quavo19/bankapi/util"
 )
 
-const (
-	dbDriver        = "postgres"
-	defaultDBSource = "postgresql://root:07May2002@@localhost:5433/simple_bank?sslmode=disable"
-)
 
 var testQueries *Queries
 
 func TestMain(m *testing.M) {
-	dbSource := os.Getenv("DB_SOURCE")
-	if dbSource == "" {
-		dbSource = defaultDBSource
+	config, err := util.LoadConfig("../..")
+	if err != nil {
+		log.Fatal("cannot load config:", err)
 	}
 
-	conn, err := sql.Open(dbDriver, dbSource)
+	conn, err := sql.Open(config.DBDriver, config.DBSource)
 	if err != nil {
 		log.Fatal("cannot connect to db: ", err)
 	}
